@@ -4,41 +4,49 @@
       <div>
         <label>Beds</label>
         <input type="text" v-model.number="form.beds" />
+        <div v-if="errors.beds">{{ errors.beds }}</div>
       </div>
 
       <div>
         <label>Baths</label>
         <input type="text" v-model.number="form.baths" />
+        <div v-if="errors.baths">{{ errors.baths }}</div>
       </div>
 
       <div>
         <label>Area</label>
         <input type="text" v-model.number="form.area" />
+        <div v-if="errors.area">{{ errors.area }}</div>
       </div>
 
       <div>
         <label>City</label>
         <input type="text" v-model="form.city" />
+        <div v-if="errors.city">{{ errors.city }}</div>
       </div>
 
       <div>
         <label>Post Code</label>
         <input type="text" v-model="form.code" />
+        <div v-if="errors.code">{{ errors.code }}</div>
       </div>
 
       <div>
         <label>Street</label>
         <input type="text" v-model="form.street" />
+        <div v-if="errors.street">{{ errors.street }}</div>
       </div>
 
       <div>
         <label>Street Nr</label>
         <input type="text" v-model="form.street_nr" />
+        <div v-if="errors.street_nr">{{ errors.street_nr }}</div>
       </div>
 
       <div>
         <label>Price</label>
         <input type="text" v-model.number="form.price" />
+        <div v-if="errors.price">{{ errors.price }}</div>
       </div>
 
       <div>
@@ -50,6 +58,8 @@
 
 <script setup>
 import { useForm } from '@inertiajs/vue3'
+
+defineProps({ errors: Object })
 
 const form = useForm({
   beds: 0,

@@ -9,7 +9,13 @@
     </Box>
 
     <div else class="md:col-span-7 items-center">
-      This is displayed when there are offers!
+      <Offer
+        v-for="offer in listing.offers"
+        :key="offer.id"
+        :offer="offer"
+        :listing-price="listing.price"
+        class="mb-4"
+      />
     </div>
 
     <Box class="md:col-span-5">
@@ -29,6 +35,7 @@ import Price from '@/Components/Price.vue'
 import Box from '@/Components/UI/Box.vue'
 import { Link } from '@inertiajs/vue3'
 import { computed } from 'vue'
+import Offer from '@/Pages/Realtor/Show/Components/Offer.vue'
 
 const props = defineProps({ listing: Object })
 

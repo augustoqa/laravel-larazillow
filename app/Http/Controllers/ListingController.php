@@ -29,7 +29,11 @@ class ListingController extends Controller
 
         return inertia('Listing/Index', [
             'filters' => $filters,
-            'listings' => Listing::mostRecent()->filter($filters)->paginate(10)->withQueryString(),
+            'listings' => Listing::mostRecent()
+                ->filter($filters)
+                ->withoutSold()
+                ->paginate(10)
+                ->withQueryString()
         ]);
     }
 
